@@ -8,6 +8,10 @@ be installed.  Free trial verions of NMath are available for download
 </a>, and Syncfusion Essential Studio User Interface Edition can be downloaded
 <a href="www.syncfusion.com/products/user-interface-edition"> here </a>.
 
+These classes are designed to allow users to quickly visualize data and the results of 
+data analysis using the <a href="www.centerspace.net" > CenterSpace NMath </a> 
+suite with visualiztion provided by Syncfusion chart controls.
+
 Class Usage
 -----------
 Class *NMathChart* and *NMathStatsChart* provide static methods for plotting NMath and NMath Stats
