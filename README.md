@@ -10,7 +10,7 @@ be installed.  Free trial verions of NMath are available for download
 
 These classes are designed to allow users to quickly visualize data and the results of 
 data analysis using the <a href="http://www.centerspace.net" > CenterSpace NMath </a> 
-suite with visualiztion provided by Syncfusion chart controls.
+suite with visualization provided by Syncfusion chart controls.
 
 Class Usage
 -----------
