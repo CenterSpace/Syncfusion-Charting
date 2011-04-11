@@ -4,12 +4,12 @@ Syncfusion / NMath Charting
 
 In order to use and run these examples, the CenterSpace NMath suite and Syncfusion Chart package must
 be installed.  Free trial verions of NMath are available for download
-<a href="www.centerspace.net/downloads/trial-verions/"> here
+<a href="http://www.centerspace.net/downloads/trial-verions/"> here
 </a>, and Syncfusion Essential Studio User Interface Edition can be downloaded
-<a href="www.syncfusion.com/products/user-interface-edition"> here </a>.
+<a href="http://www.syncfusion.com/products/user-interface-edition"> here </a>.
 
 These classes are designed to allow users to quickly visualize data and the results of 
-data analysis using the <a href="www.centerspace.net" > CenterSpace NMath </a> 
+data analysis using the <a href="http://www.centerspace.net" > CenterSpace NMath </a> 
 suite with visualiztion provided by Syncfusion chart controls.
 
 Class Usage
