@@ -4,7 +4,7 @@ Syncfusion / NMath Charting
 
 In order to use and run these examples, the CenterSpace NMath suite and Syncfusion Chart package must
 be installed.  Free trial verions of NMath are available for download
-<a href="http://www.centerspace.net/downloads/trial-verions/"> here
+<a href="http://www.centerspace.net/downloads/trial-versions/"> here
 </a>, and Syncfusion Essential Studio User Interface Edition can be downloaded
 <a href="http://www.syncfusion.com/products/user-interface-edition"> here </a>.
 
