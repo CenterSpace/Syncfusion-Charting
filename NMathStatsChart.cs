@@ -1,4 +1,14 @@
-﻿
+﻿/////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 2003-2011 CenterSpace Software, Inc. All Rights Reserved. //
+//                                                                         //
+// This code is free software under the Artistic license.                  //
+//                                                                         //
+// CenterSpace Software                                                    //
+// 230 SW 3rd Street - Suite #311                                          //
+// Corvallis, Oregon 97333                                                 //
+// USA                                                                     //
+/////////////////////////////////////////////////////////////////////////////
+
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -44,7 +54,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
   /// <code>
   /// NMathStatsChart.Show( NMathStatsChart.ToChart( pca ) );
   /// </code>
-  /// The Save() function saves a chart to a file or stream. 
+  /// The Save() function saves a chart to a file. 
   /// <code>
   /// NMathStatsChart.Save( chart, "chart.png" );
   /// </code>
@@ -206,6 +216,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the given x-y data.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="x">The x values.</param>
     /// <param name="y">The y values.</param>
     /// <exception cref="MismatchedSizeException">Thrown if x and y have different lengths.</exception>
@@ -260,6 +271,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the given data.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <remarks>
     /// Non-numeric columns are ignored.
@@ -307,6 +319,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the given data.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <param name="xUnits">The units for the x-axis.</param>
     /// <remarks>
@@ -462,6 +475,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the given x-y data.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="x">The x values.</param>
     /// <param name="y">The y values.</param>
     /// <exception cref="MismatchedSizeException">Thrown if x and y have different lengths.</exception>
@@ -514,6 +528,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the given data.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <remarks>
     /// Non-numeric columns are ignored.
@@ -563,6 +578,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the given data.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <param name="xUnits">The units for the x-axis.</param>
     /// <remarks>
@@ -720,6 +736,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the given x-y data.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="x">The x values.</param>
     /// <param name="y">The y values.</param>
     /// <exception cref="MismatchedSizeException">Thrown if x and y have different lengths.</exception>
@@ -769,6 +786,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the given data.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <remarks>
     /// Titles are added only if chart does not currently contain any titles.
@@ -811,6 +829,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the given data.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <param name="xUnits">The units for the x-axis.</param>
     /// <remarks>
@@ -874,6 +893,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the columns of the given data frame.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <returns>A new chart.</returns>
     /// <remarks>
@@ -923,6 +943,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the columns of the given data frame.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <param name="xUnits">The units for the x-axis.</param>
     /// <returns>A new chart.</returns>
@@ -986,6 +1007,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the columns of the given data frame.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <param name="xColIndex">The index of the column containing the x data.</param>
     /// <param name="yColIndex">The index of the column containing the y data.</param>
@@ -1049,6 +1071,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified columns of the given data frame.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <param name="colIndices">The indices of the columns to plot.</param>
     /// <exception cref="InvalidArgumentException">Thrown if any column is not numeric.</exception>
@@ -1084,6 +1107,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// </summary>
     /// <param name="data">The data.</param>
     /// <param name="colIndices">The indices of the columns to plot.</param>
+    /// <param name="xUnits">The units for the x-axis.</param>
     /// <exception cref="InvalidArgumentException">Thrown if any column is not numeric.</exception>
     /// <returns>A new chart.</returns>
     public static ChartControl ToChart( DataFrame data, int[] colIndices, Unit xUnits )
@@ -1096,8 +1120,10 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified columns of the given data frame.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <param name="colIndices">The indices of the columns to plot.</param>
+    /// <param name="xUnits">The units for the x-axis.</param>
     /// <exception cref="InvalidArgumentException">Thrown if any column is not numeric.</exception>
     /// <remarks>
     /// Titles are added only if chart does not currently contain any titles.
@@ -1130,6 +1156,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// </summary>
     /// <param name="data">The data.</param>
     /// <param name="colIndices">The indices of the rows to plot.</param>
+    /// <param name="xUnits">The units for the x-axis.</param>
     /// <exception cref="InvalidArgumentException">Thrown if any column is not numeric.</exception>
     /// <remarks>
     /// Equivalent to:
@@ -1147,7 +1174,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     #region BetaDistribution ------------------------------------------------
 
     /// <summary>
-    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// </summary>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
@@ -1163,12 +1190,13 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified distribution.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
     /// <param name="numInterpolatedValues">The number of interpolated values.</param>
     /// <returns>A new chart.</returns>
     /// <remarks>
-    /// Plots the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Plots the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// <br/>
     /// Titles are added only if chart does not currently contain any titles.
     /// <br/>
@@ -1206,7 +1234,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     #region BinomialDistribution --------------------------------------------
 
     /// <summary>
-    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// </summary>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
@@ -1221,11 +1249,12 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified distribution.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
     /// <returns>A new chart.</returns>
     /// <remarks>
-    /// Plots the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Plots the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// <br/>
     /// Titles are added only if chart does not currently contain any titles.
     /// <br/>
@@ -1262,7 +1291,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     #region ChiSquareDistribution -------------------------------------------
 
     /// <summary>
-    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// </summary>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
@@ -1278,12 +1307,13 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified distribution.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
     /// <param name="numInterpolatedValues">The number of interpolated values.</param>
     /// <returns>A new chart.</returns>
     /// <remarks>
-    /// Plots the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Plots the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// <br/>
     /// Titles are added only if chart does not currently contain any titles.
     /// <br/>
@@ -1321,7 +1351,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     #region ExponentialDistribution -----------------------------------------
 
     /// <summary>
-    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// </summary>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
@@ -1337,12 +1367,13 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified distribution.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
     /// <param name="numInterpolatedValues">The number of interpolated values.</param>
     /// <returns>A new chart.</returns>
     /// <remarks>
-    /// Plots the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Plots the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// <br/>
     /// Titles are added only if chart does not currently contain any titles.
     /// <br/>
@@ -1380,7 +1411,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     #region FDistribution ---------------------------------------------------
 
     /// <summary>
-    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// </summary>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
@@ -1396,12 +1427,13 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified distribution.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
     /// <param name="numInterpolatedValues">The number of interpolated values.</param>
     /// <returns>A new chart.</returns>
     /// <remarks>
-    /// Plots the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Plots the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// <br/>
     /// Titles are added only if chart does not currently contain any titles.
     /// <br/>
@@ -1439,7 +1471,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     #region GammaDistribution -----------------------------------------------
 
     /// <summary>
-    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// </summary>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
@@ -1455,12 +1487,13 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified distribution.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
     /// <param name="numInterpolatedValues">The number of interpolated values.</param>
     /// <returns>A new chart.</returns>
     /// <remarks>
-    /// Plots the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Plots the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// <br/>
     /// Titles are added only if chart does not currently contain any titles.
     /// <br/>
@@ -1498,7 +1531,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     #region GeometricDistribution -------------------------------------------
 
     /// <summary>
-    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// </summary>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
@@ -1513,11 +1546,12 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified distribution.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
     /// <returns>A new chart.</returns>
     /// <remarks>
-    /// Plots the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Plots the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// <br/>
     /// Titles are added only if chart does not currently contain any titles.
     /// <br/>
@@ -1554,7 +1588,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     #region JohnsonDistribution ---------------------------------------------
 
     /// <summary>
-    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// </summary>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
@@ -1570,12 +1604,13 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified distribution.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
     /// <param name="numInterpolatedValues">The number of interpolated values.</param>
     /// <returns>A new chart.</returns>
     /// <remarks>
-    /// Plots the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Plots the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// <br/>
     /// Titles are added only if chart does not currently contain any titles.
     /// <br/>
@@ -1613,7 +1648,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     #region LogisticDistribution --------------------------------------------
 
     /// <summary>
-    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// </summary>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
@@ -1629,12 +1664,13 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified distribution.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
     /// <param name="numInterpolatedValues">The number of interpolated values.</param>
     /// <returns>A new chart.</returns>
     /// <remarks>
-    /// Plots the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Plots the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// <br/>
     /// Titles are added only if chart does not currently contain any titles.
     /// <br/>
@@ -1672,7 +1708,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     #region LognormalDistribution -------------------------------------------
 
     /// <summary>
-    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// </summary>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
@@ -1688,12 +1724,13 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified distribution.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
     /// <param name="numInterpolatedValues">The number of interpolated values.</param>
     /// <returns>A new chart.</returns>
     /// <remarks>
-    /// Plots the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Plots the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// <br/>
     /// Titles are added only if chart does not currently contain any titles.
     /// <br/>
@@ -1731,7 +1768,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     #region NegativeBinomialDistribution ------------------------------------
 
     /// <summary>
-    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// </summary>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
@@ -1746,11 +1783,12 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified distribution.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
     /// <returns>A new chart.</returns>
     /// <remarks>
-    /// Plots the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Plots the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// <br/>
     /// Titles are added only if chart does not currently contain any titles.
     /// <br/>
@@ -1787,7 +1825,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     #region NormalDistribution ----------------------------------------------
 
     /// <summary>
-    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// </summary>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
@@ -1803,12 +1841,13 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified distribution.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
     /// <param name="numInterpolatedValues">The number of interpolated values.</param>
     /// <returns>A new chart.</returns>
     /// <remarks>
-    /// Plots the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Plots the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// <br/>
     /// Titles are added only if chart does not currently contain any titles.
     /// <br/>
@@ -1846,7 +1885,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     #region PoissonDistribution ---------------------------------------------
 
     /// <summary>
-    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// </summary>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
@@ -1861,11 +1900,12 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified distribution.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
     /// <returns>A new chart.</returns>
     /// <remarks>
-    /// Plots the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Plots the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// <br/>
     /// Titles are added only if chart does not currently contain any titles.
     /// <br/>
@@ -1902,7 +1942,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     #region TDistribution ---------------------------------------------------
 
     /// <summary>
-    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// </summary>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
@@ -1918,12 +1958,13 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified distribution.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
     /// <param name="numInterpolatedValues">The number of interpolated values.</param>
     /// <returns>A new chart.</returns>
     /// <remarks>
-    /// Plots the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Plots the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// <br/>
     /// Titles are added only if chart does not currently contain any titles.
     /// <br/>
@@ -1961,7 +2002,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     #region TriangularDistribution ------------------------------------------
 
     /// <summary>
-    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// </summary>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
@@ -1977,12 +2018,13 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified distribution.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
     /// <param name="numInterpolatedValues">The number of interpolated values.</param>
     /// <returns>A new chart.</returns>
     /// <remarks>
-    /// Plots the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Plots the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// <br/>
     /// Titles are added only if chart does not currently contain any titles.
     /// <br/>
@@ -2003,7 +2045,6 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// </summary>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
-    /// <param name="function">The distribution function to plot.</param>
     /// <param name="numInterpolatedValues">The number of interpolated values.</param>
     /// <remarks>
     /// Equivalent to:
@@ -2021,7 +2062,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     #region UniformDistribution ---------------------------------------------
 
     /// <summary>
-    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// </summary>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
@@ -2037,12 +2078,13 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified distribution.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
     /// <param name="numInterpolatedValues">The number of interpolated values.</param>
     /// <returns>A new chart.</returns>
     /// <remarks>
-    /// Plots the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Plots the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// <br/>
     /// Titles are added only if chart does not currently contain any titles.
     /// <br/>
@@ -2063,7 +2105,6 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// </summary>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
-    /// <param name="function">The distribution function to plot.</param>
     /// <param name="numInterpolatedValues">The number of interpolated values.</param>
     /// <remarks>
     /// Equivalent to:
@@ -2081,7 +2122,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     #region WeibullDistribution ---------------------------------------------
 
     /// <summary>
-    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Returns a new line chart plotting the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// </summary>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
@@ -2097,12 +2138,13 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified distribution.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="dist">The distribution.</param>
     /// <param name="function">The distribution function to plot.</param>
     /// <param name="numInterpolatedValues">The number of interpolated values.</param>
     /// <returns>A new chart.</returns>
     /// <remarks>
-    /// Plots the specified function of the given distribution for 0.0001 &le; p &le; 0.9999.
+    /// Plots the specified function of the given distribution for 0.0001 &lt;= p &lt;= 0.9999.
     /// <br/>
     /// Titles are added only if chart does not currently contain any titles.
     /// <br/>
@@ -2122,7 +2164,6 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// Shows a new chart in a default form.
     /// </summary>
     /// <param name="dist">The distribution.</param>
-    /// <param name="function">The distribution function to plot.</param>
     /// <param name="function">The distribution function to plot.</param>
     /// <param name="numInterpolatedValues">The number of interpolated values.</param>
     /// <remarks>
@@ -2163,6 +2204,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified linear regression.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="lr">Linear Regression.</param>
     /// <param name="predictorIndex">The predictor (independent) variable to plot on the x-axis.</param>
     /// <exception cref="InvalidArgumentException">
@@ -2248,7 +2290,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <param name="xColIndex">The index of the matrix column containing the x data.</param>
     /// <param name="yColIndex">The index of the matrix column containing the y data.</param>
     /// <returns>A new chart.</returns>
-    /// <exception cref="IndexOutOfRangeException">Thrown if either column index is outside the
+    /// <exception cref="Core.IndexOutOfRangeException">Thrown if either column index is outside the
     /// range of the columns of the given data matrix.</exception>
     /// <remarks>
     /// Instances of class ClusterSet are created by ClusterAnalysis, KMeanClustering, and NMFClustering objects
@@ -2266,11 +2308,12 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified clusters.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="clusters">The cluster assignments.</param>
     /// <param name="data">A matrix of data. Each row in the matrix represents an object that was clustered.</param>
     /// <param name="xColIndex">The index of the matrix column containing the x data.</param>
     /// <param name="yColIndex">The index of the matrix column containing the y data.</param>
-    /// <exception cref="IndexOutOfRangeException">Thrown if either column index is outside the
+    /// <exception cref="Core.IndexOutOfRangeException">Thrown if either column index is outside the
     /// range of the columns of the given data matrix.</exception>
     /// <remarks>
     /// Instances of class ClusterSet are created by ClusterAnalysis, KMeanClustering, and NMFClustering objects
@@ -2333,7 +2376,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <param name="data">A matrix of data. Each row in the matrix represents an object that was clustered.</param>
     /// <param name="xColIndex">The index of the matrix column containing the x data.</param>
     /// <param name="yColIndex">The index of the matrix column containing the y data.</param>
-    /// <exception cref="IndexOutOfRangeException">Thrown if either column index is outside the
+    /// <exception cref="Core.IndexOutOfRangeException">Thrown if either column index is outside the
     /// range of the columns of the given data matrix.</exception>
     /// <remarks>
     /// Instances of class ClusterSet are created by ClusterAnalysis, KMeanClustering, and NMFClustering objects
@@ -2775,6 +2818,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
       return series;
     }
 
+    /// <summary></summary>
     protected static void UpdateContinuousDistribution( ref ChartControl chart, ProbabilityDistribution dist, List<string> titles, DistributionFunction function, int numInterpolatedValues )
     {
       string xTitle = "x";
@@ -2802,6 +2846,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
       Update( ref chart, series, titles, xTitle, yTitle );
     }
 
+    /// <summary></summary>
     protected static void UpdateDiscreteDistribution( ref ChartControl chart, ProbabilityDistribution dist, List<string> titles, DistributionFunction function )
     {
       string xTitle = "x";

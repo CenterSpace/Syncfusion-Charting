@@ -1,4 +1,14 @@
-﻿
+﻿/////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 2003-2011 CenterSpace Software, Inc. All Rights Reserved. //
+//                                                                         //
+// This code is free software under the Artistic license.                  //
+//                                                                         //
+// CenterSpace Software                                                    //
+// 230 SW 3rd Street - Suite #311                                          //
+// Corvallis, Oregon 97333                                                 //
+// USA                                                                     //
+/////////////////////////////////////////////////////////////////////////////
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -47,7 +57,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
   /// <code>
   /// NMathChart.Show( NMathChart.ToChart( poly ) );
   /// </code>
-  /// The Save() function saves a chart to a file or stream. 
+  /// The Save() function saves a chart to a file. 
   /// <code>
   /// NMathChart.Save( chart, "chart.png" );
   /// </code>
@@ -274,6 +284,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the given x-y data.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="x">The x values.</param>
     /// <param name="y">The y values.</param>
     /// <exception cref="MismatchedSizeException">Thrown if x and y have different lengths.</exception>
@@ -323,6 +334,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the given data.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <remarks>
     /// Titles are added only if chart does not currently contain any titles.
@@ -365,6 +377,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the given data.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <param name="xUnits">The units for the x-axis.</param>
     /// <remarks>
@@ -515,6 +528,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the given x-y data.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="x">The x values.</param>
     /// <param name="y">The y values.</param>
     /// <exception cref="MismatchedSizeException">Thrown if x and y have different lengths.</exception>
@@ -564,6 +578,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the given data.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <remarks>
     /// Titles are added only if chart does not currently contain any titles.
@@ -606,6 +621,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the given data.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <param name="xUnits">The units for the x-axis.</param>
     /// <remarks>
@@ -776,6 +792,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the magnitude of the given x-y complex data.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="x">The x values.</param>
     /// <param name="y">The y values.</param>
     /// <exception cref="MismatchedSizeException">Thrown if x and y have different lengths.</exception>
@@ -825,6 +842,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the magnitude of the given complex data.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <remarks>
     /// Titles are added only if chart does not currently contain any titles.
@@ -867,6 +885,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the magnitude of the given complex data.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <param name="xUnits">The units for the x-axis.</param>
     /// <remarks>
@@ -1037,6 +1056,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the magnitude of the given x-y complex data.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="x">The x values.</param>
     /// <param name="y">The y values.</param>
     /// <exception cref="MismatchedSizeException">Thrown if x and y have different lengths.</exception>
@@ -1086,6 +1106,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the magnitude of the given complex data.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <remarks>
     /// Titles are added only if chart does not currently contain any titles.
@@ -1128,6 +1149,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the magnitude of the given complex data.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <param name="xUnits">The units for the x-axis.</param>
     /// <remarks>
@@ -1188,6 +1210,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the columns of the given matrix.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <remarks>
     /// To plot matrix rows, call data.Transpose().
@@ -1236,6 +1259,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the columns of the given matrix.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <param name="xUnits">The units for the x-axis.</param>
     /// <remarks>
@@ -1297,6 +1321,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the columns of the given matrix.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <param name="xColIndex">The index of the matrix column containing the x data.</param>
     /// <param name="yColIndex">The index of the matrix column containing the y data.</param>
@@ -1364,6 +1389,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified columns of the given matrix.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <param name="colIndices">The indices of the columns to plot.</param>
     /// <remarks>
@@ -1415,6 +1441,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified columns of the given matrix.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <param name="colIndices">The indices of the columns to plot.</param>
     /// <param name="xUnits">The units for the x-axis.</param>
@@ -1486,6 +1513,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the columns of the given matrix.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <remarks>
     /// To plot matrix rows, call data.Transpose().
@@ -1534,6 +1562,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the columns of the given matrix.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <param name="xUnits">The units for the x-axis.</param>
     /// <remarks>
@@ -1595,6 +1624,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the columns of the given matrix.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <param name="xColIndex">The index of the matrix column containing the x data.</param>
     /// <param name="yColIndex">The index of the matrix column containing the y data.</param>
@@ -1662,6 +1692,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified columns of the given matrix.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <param name="colIndices">The indices of the columns to plot.</param>
     /// <remarks>
@@ -1713,6 +1744,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified columns of the given matrix.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <param name="colIndices">The indices of the columns to plot.</param>
     /// <param name="xUnits">The units for the x-axis.</param>
@@ -1784,6 +1816,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the magnitude of the columns of the given complex matrix.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <remarks>
     /// To plot matrix rows, call data.Transpose().
@@ -1832,6 +1865,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the magnitude of the columns of the given complex matrix.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <param name="xUnits">The units for the x-axis.</param>
     /// <remarks>
@@ -1893,6 +1927,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the magnitude of the columns of the given complex matrix.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <param name="xColIndex">The index of the matrix column containing the x data.</param>
     /// <param name="yColIndex">The index of the matrix column containing the y data.</param>
@@ -1959,6 +1994,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the magnitude of the specified columns of the given complex matrix.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <param name="colIndices">The indices of the columns to plot.</param>
     /// <remarks>
@@ -2010,6 +2046,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the magnitude of the specified columns of the given complex matrix.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <param name="colIndices">The indices of the columns to plot.</param>
     /// <param name="xUnits">The units for the x-axis.</param>
@@ -2081,6 +2118,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the magnitude of the columns of the given complex matrix.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <remarks>
     /// To plot matrix rows, call data.Transpose().
@@ -2129,6 +2167,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the magnitude of the columns of the given complex matrix.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <param name="xUnits">The units for the x-axis.</param>
     /// <remarks>
@@ -2190,6 +2229,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the magnitude of the columns of the given complex matrix.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <param name="xColIndex">The index of the matrix column containing the x data.</param>
     /// <param name="yColIndex">The index of the matrix column containing the y data.</param>
@@ -2256,6 +2296,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the magnitude of the specified columns of the given complex matrix.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <param name="colIndices">The indices of the columns to plot.</param>
     /// <remarks>
@@ -2307,6 +2348,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the magnitude of the specified columns of the given complex matrix.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="data">The data.</param>
     /// <param name="colIndices">The indices of the columns to plot.</param>
     /// <param name="xUnits">The units for the x-axis.</param>
@@ -2379,6 +2421,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified least squares model.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="lsq">Least squares object.</param>
     /// <param name="y">The right-hand side of the linear system.</param>
     /// <exception cref="MismatchedSizeException">
@@ -2433,6 +2476,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified least squares model.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="lsq">Least squares object.</param>
     /// <param name="y">The right-hand side of the linear system.</param>
     /// <param name="xUnits">The units for the x-axis.</param>
@@ -2514,6 +2558,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified least squares model.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="lsq">Least squares object.</param>
     /// <param name="y">The right-hand side of the linear system.</param>
     /// <exception cref="MismatchedSizeException">
@@ -2568,6 +2613,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified least squares model.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="lsq">Least squares object.</param>
     /// <param name="y">The right-hand side of the linear system.</param>
     /// <param name="xUnits">The units for the x-axis.</param>
@@ -2649,6 +2695,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified least squares model.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="lsq">Least squares object.</param>
     /// <param name="y">The right-hand side of the linear system.</param>
     /// <exception cref="MismatchedSizeException">
@@ -2703,6 +2750,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified least squares model.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="lsq">Least squares object.</param>
     /// <param name="y">The right-hand side of the linear system.</param>
     /// <param name="xUnits">The units for the x-axis.</param>
@@ -2784,6 +2832,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified least squares model.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="lsq">Least squares object.</param>
     /// <param name="y">The right-hand side of the linear system.</param>
     /// <exception cref="MismatchedSizeException">
@@ -2838,6 +2887,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified least squares model.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="lsq">Least squares object.</param>
     /// <param name="y">The right-hand side of the linear system.</param>
     /// <param name="xUnits">The units for the x-axis.</param>
@@ -2918,6 +2968,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified function.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="f">The function.</param>
     /// <param name="xmin">The starting x value.</param>
     /// <param name="xmax">The ending x value.</param>
@@ -2972,6 +3023,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified function.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="f">The function.</param>
     /// <param name="xmin">The starting x value.</param>
     /// <param name="xmax">The ending x value.</param>
@@ -3069,6 +3121,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified function.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="f">The function.</param>
     /// <param name="xmin">The starting x value.</param>
     /// <param name="xmax">The ending x value.</param>
@@ -3134,6 +3187,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified function.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="f">The function.</param>
     /// <param name="numInterpolatedValues">The number of interpolated values.</param>
     /// <remarks>
@@ -3180,6 +3234,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified function.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="f">The function.</param>
     /// <param name="xmin">The starting x value.</param>
     /// <param name="xmax">The ending x value.</param>
@@ -3244,6 +3299,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified function.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="f">The function.</param>
     /// <param name="numInterpolatedValues">The number of interpolated values.</param>
     /// <remarks>
@@ -3290,6 +3346,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified function.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="f">The function.</param>
     /// <param name="xmin">The starting x value.</param>
     /// <param name="xmax">The ending x value.</param>
@@ -3354,6 +3411,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified function.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="f">The function.</param>
     /// <param name="numInterpolatedValues">The number of interpolated values.</param>
     /// <remarks>
@@ -3400,6 +3458,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified function.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="f">The function.</param>
     /// <param name="xmin">The starting x value.</param>
     /// <param name="xmax">The ending x value.</param>
@@ -3467,6 +3526,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified function.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="f">The parameterized function.</param>
     /// <param name="parameters">The function parameters.</param>
     /// <param name="xmin">The starting x value.</param>
@@ -3533,6 +3593,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified parameterized function.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="f">The function.</param>
     /// <param name="parameters">The function parameters.</param>
     /// <param name="xmin">The starting x value.</param>
@@ -3598,6 +3659,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified function.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="f">The function.</param>
     /// <param name="xmin">The starting x value.</param>
     /// <param name="xmax">The ending x value.</param>
@@ -3662,6 +3724,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified function.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="f">The parameterized function.</param>
     /// <param name="parameters">The function parameters.</param>
     /// <param name="xmin">The starting x value.</param>
@@ -3715,8 +3778,6 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// Returns a line chart showing the peaks in the data.
     /// </summary>
     /// <param name="pf">The peak finder.</param>
-    /// <param name="xmin">The starting x value.</param>
-    /// <param name="xmax">The ending x value.</param>
     /// <returns>A new chart.</returns>
     /// <remarks>
     /// Call LocatePeaks() on the peak finder prior to charting.
@@ -3731,9 +3792,8 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified peak finder.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="pf">The peak finder.</param>
-    /// <param name="xmin">The starting x value.</param>
-    /// <param name="xmax">The ending x value.</param>
     /// <remarks>
     /// Call LocatePeaks() on the peak finder prior to charting.
     /// <br/>
@@ -3750,8 +3810,6 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// Shows a new chart in a default form.
     /// </summary>
     /// <param name="pf">The peak finder.</param>
-    /// <param name="xmin">The starting x value.</param>
-    /// <param name="xmax">The ending x value.</param>
     /// <remarks>
     /// Call LocatePeaks() on the peak finder prior to charting.
     /// <br/>
@@ -3785,6 +3843,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified peak finder.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="pf">The peak finder.</param>
     /// <param name="xmin">The starting x value.</param>
     /// <param name="xmax">The ending x value.</param>
@@ -3882,6 +3941,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified bracket.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="bracket">The bracket, with contained function.</param>
     /// <param name="numInterpolatedValues">The number of interpolated values. The bracket Lower, Interior, and Upper values
     /// may additionally be inserted into the interpolated series.</param>
@@ -3945,6 +4005,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified histogram.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="histogram">The histogram.</param>
     /// <remarks>
     /// Titles are added only if chart does not currently contain any titles.
@@ -4005,6 +4066,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified fitted polynomial.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="pls">A PolynomialLeastSquares object containing a least squares fit of a polynomial to
     /// the data.</param>
     /// <param name="x">The fitted x values.</param>
@@ -4080,6 +4142,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified fitted function.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="ovf">A OneVariableFunctionFitter object containing a least squares fit of a
     /// parameterized function to the given x,y values.</param>
     /// <param name="x">The fitted x values.</param>
@@ -4158,6 +4221,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <summary>
     /// Updates the given chart with the specified fitted function.
     /// </summary>
+    /// <param name="chart">A chart.</param>
     /// <param name="ovf">A BoundedOneVariableFunctionFitter object containing a least squares fit of a
     /// parameterized function to the given x,y values.</param>
     /// <param name="x">The fitted x values.</param>
@@ -4479,7 +4543,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// </summary>
     /// <param name="chart">The chart.</param>
     /// <param name="series">The data Series.</param>
-    /// <param name="titles">The title.</param>
+    /// <param name="title">The title.</param>
     /// <param name="xTitle">The x axis title.</param>
     /// <param name="yTitle">The y axis title.</param>
     /// <remarks>
@@ -4704,6 +4768,11 @@ namespace CenterSpace.NMath.Charting.Syncfusion
 
       #region Member Functions ------------------------------------------------
 
+      /// <summary>
+      /// Returns a vector representation of this unit of the specified length.
+      /// </summary>
+      /// <param name="length">The vector length.</param>
+      /// <returns></returns>
       public DoubleVector ToDoubleVector( int length )
       {
         return new DoubleVector( length, Start, Step );
