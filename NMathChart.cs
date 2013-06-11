@@ -1,12 +1,29 @@
 ﻿/////////////////////////////////////////////////////////////////////////////
-// Copyright (c) 2003-2011 CenterSpace Software, Inc. All Rights Reserved. //
+// Copyright (c) 2003-2012 CenterSpace Software, Inc. All Rights Reserved. //
 //                                                                         //
-// This code is free software under the Artistic license.                  //
+// This computer software is owned by CenterSpace Software, LLC and is     //
+// protected by U.S. copyright laws and other laws and by international    //
+// treaties. This software is furnished under a license and may be used,   //
+// copied, transmitted and stored in accordance with the terms of such     //
+// license and with the inclusion of the above copyright notice. This      //
+// software or any other copies thereof may not be provided or otherwise   //
+// made available to any other person. No title to and ownership of the    //
+// software is hereby transferred.                                         //
+//                                                                         //
+// U.S. Government Restricted Rights. This computer software is provided   //
+// with Restricted Rights. Use, duplication, or disclosure by the          //
+// Government is subject to restrictions as set forth in subparagraph (c)  //
+// (1) (ii) of The Rights in Technical Data and Computer Software clause   //
+// at DFARS 252.227-7013 or subparagraphs (c) (1) and (2) of the           //
+// Commercial Computer Software - Restricted Rights at 48 CFR 52.227-19,   //
+// as applicable. Manufacturer is:                                         //
 //                                                                         //
 // CenterSpace Software                                                    //
-// 230 SW 3rd Street - Suite #311                                          //
-// Corvallis, Oregon 97333                                                 //
+// 622 NW 32nd Street                                                      //
+// Corvallis, Oregon 97330                                                 //
 // USA                                                                     //
+//                                                                         //
+// For questions about licensing, please email support@centerspace.net     //
 /////////////////////////////////////////////////////////////////////////////
 
 using System;
@@ -3649,7 +3666,23 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <param name="xmax">The ending x value.</param>
     /// <param name="numInterpolatedValues">The number of interpolated values.</param>
     /// <returns>A new chart.</returns>
+    [Obsolete( "Use ToChart( Func<double, double> f, double xmin, double xmax, int numInterpolatedValues )" )]
     public static ChartControl ToChart( NMathFunctions.DoubleUnaryFunction f, double xmin, double xmax, int numInterpolatedValues )
+    {
+      ChartControl chart = GetDefaultChart();
+      Update( ref chart, f, xmin, xmax, numInterpolatedValues );
+      return chart;
+    }
+
+    /// <summary>
+    /// Returns a new line chart by interpolating over the given function.
+    /// </summary>
+    /// <param name="f">The function.</param>
+    /// <param name="xmin">The starting x value.</param>
+    /// <param name="xmax">The ending x value.</param>
+    /// <param name="numInterpolatedValues">The number of interpolated values.</param>
+    /// <returns>A new chart.</returns>
+    public static ChartControl ToChart( Func<double, double> f, double xmin, double xmax, int numInterpolatedValues )
     {
       ChartControl chart = GetDefaultChart();
       Update( ref chart, f, xmin, xmax, numInterpolatedValues );
@@ -3669,7 +3702,35 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <br/>
     /// chart.Series[0] is replaced, or added if necessary.
     /// </remarks>
+    [Obsolete( "Use Update( ref ChartControl chart, Func<double, double> f, double xmin, double xmax, int numInterpolatedValues )" )]
     public static void Update( ref ChartControl chart, NMathFunctions.DoubleUnaryFunction f, double xmin, double xmax, int numInterpolatedValues )
+    {
+      string title = "NMathFunctions.DoubleUnaryFunction";
+      string xTitle = "x";
+      string yTitle = "f(x)";
+
+      List<ChartSeries> series = new List<ChartSeries>()
+      {
+        BindXY( new OneVariableFunction( f ), xmin, xmax, numInterpolatedValues, ChartSeriesType.Line, ChartSymbolShape.None )
+      };
+
+      Update( ref chart, series, title, xTitle, yTitle );
+    }
+
+    /// <summary>
+    /// Updates the given chart with the specified function.
+    /// </summary>
+    /// <param name="chart">A chart.</param>
+    /// <param name="f">The function.</param>
+    /// <param name="xmin">The starting x value.</param>
+    /// <param name="xmax">The ending x value.</param>
+    /// <param name="numInterpolatedValues">The number of interpolated values.</param>
+    /// <remarks>>
+    /// Titles are added only if chart does not currently contain any titles.
+    /// <br/>
+    /// chart.Series[0] is replaced, or added if necessary.
+    /// </remarks>
+    public static void Update( ref ChartControl chart, Func<double, double> f, double xmin, double xmax, int numInterpolatedValues )
     {
       string title = "NMathFunctions.DoubleUnaryFunction";
       string xTitle = "x";
@@ -3696,7 +3757,26 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// NMathChart.Show( ToChart( f, xmin, ymin, numInterpolatedValues ) );
     /// </code>
     /// </remarks>
+    [Obsolete( "Use Show( Func<double, double> f, double xmin, double xmax, int numInterpolatedValues )" )]
     public static void Show( NMathFunctions.DoubleUnaryFunction f, double xmin, double xmax, int numInterpolatedValues )
+    {
+      Show( ToChart( f, xmin, xmax, numInterpolatedValues ) );
+    }
+
+    /// <summary>
+    /// Shows a new chart in a default form.
+    /// </summary>
+    /// <param name="f">The function.</param>
+    /// <param name="xmin">The starting x value.</param>
+    /// <param name="xmax">The ending x value.</param>
+    /// <param name="numInterpolatedValues">The number of interpolated values.</param>
+    /// <remarks>
+    /// Equivalent to:
+    /// <code>
+    /// NMathChart.Show( ToChart( f, xmin, ymin, numInterpolatedValues ) );
+    /// </code>
+    /// </remarks>
+    public static void Show( Func<double, double> f, double xmin, double xmax, int numInterpolatedValues )
     {
       Show( ToChart( f, xmin, xmax, numInterpolatedValues ) );
     }
@@ -3714,7 +3794,24 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <param name="xmax">The ending x value.</param>
     /// <param name="numInterpolatedValues">The number of interpolated values.</param>
     /// <returns>A new chart.</returns>
+    [Obsolete( "Use ToChart( Func<DoubleVector, double, double> f, DoubleVector parameters, double xmin, double xmax, int numInterpolatedValues )" )]
     public static ChartControl ToChart( NMathFunctions.GeneralizedDoubleUnaryFunction f, DoubleVector parameters, double xmin, double xmax, int numInterpolatedValues )
+    {
+      ChartControl chart = GetDefaultChart();
+      Update( ref chart, f, parameters, xmin, xmax, numInterpolatedValues );
+      return chart;
+    }
+
+    /// <summary>
+    /// Returns a new line chart by interpolating over the given parameterized function.
+    /// </summary>
+    /// <param name="f">The function.</param>
+    /// <param name="parameters">The function parameters.</param>
+    /// <param name="xmin">The starting x value.</param>
+    /// <param name="xmax">The ending x value.</param>
+    /// <param name="numInterpolatedValues">The number of interpolated values.</param>
+    /// <returns>A new chart.</returns>
+    public static ChartControl ToChart( Func<DoubleVector, double, double> f, DoubleVector parameters, double xmin, double xmax, int numInterpolatedValues )
     {
       ChartControl chart = GetDefaultChart();
       Update( ref chart, f, parameters, xmin, xmax, numInterpolatedValues );
@@ -3735,7 +3832,38 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <br/>
     /// chart.Series[0] is replaced, or added if necessary.
     /// </remarks>
+    [Obsolete( "Use Update( ref ChartControl chart, Func<DoubleVector, double, double> f, DoubleVector parameters, double xmin, double xmax, int numInterpolatedValues )" )]
     public static void Update( ref ChartControl chart, NMathFunctions.GeneralizedDoubleUnaryFunction f, DoubleVector parameters, double xmin, double xmax, int numInterpolatedValues )
+    {
+      string title = "NMathFunctions.GeneralizedDoubleUnaryFunction";
+      string xTitle = "x";
+      string yTitle = "f(x)";
+
+      DoubleParameterizedDelegate f2 = new DoubleParameterizedDelegate( new Func<DoubleVector, double, double>( f ) );
+
+      List<ChartSeries> series = new List<ChartSeries>()
+      {
+        BindXY( f2, parameters, xmin, xmax, numInterpolatedValues, ChartSeriesType.Line, ChartSymbolShape.None )
+      };
+
+      Update( ref chart, series, title, xTitle, yTitle );
+    }
+
+    /// <summary>
+    /// Updates the given chart with the specified function.
+    /// </summary>
+    /// <param name="chart">A chart.</param>
+    /// <param name="f">The parameterized function.</param>
+    /// <param name="parameters">The function parameters.</param>
+    /// <param name="xmin">The starting x value.</param>
+    /// <param name="xmax">The ending x value.</param>
+    /// <param name="numInterpolatedValues">The number of interpolated values.</param>
+    /// <remarks>
+    /// Titles are added only if chart does not currently contain any titles.
+    /// <br/>
+    /// chart.Series[0] is replaced, or added if necessary.
+    /// </remarks>
+    public static void Update( ref ChartControl chart, Func<DoubleVector, double, double> f, DoubleVector parameters, double xmin, double xmax, int numInterpolatedValues )
     {
       string title = "NMathFunctions.GeneralizedDoubleUnaryFunction";
       string xTitle = "x";
@@ -3765,7 +3893,27 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// NMathChart.Show( ToChart( f, parameters, xmin, ymin, numInterpolatedValues ) );
     /// </code>
     /// </remarks>
+    [Obsolete(" Use Show( Func<DoubleVector, double, double> f, DoubleVector parameters, double xmin, double xmax, int numInterpolatedValues )" )]
     public static void Show( NMathFunctions.GeneralizedDoubleUnaryFunction f, DoubleVector parameters, double xmin, double xmax, int numInterpolatedValues )
+    {
+      Show( ToChart( f, parameters, xmin, xmax, numInterpolatedValues ) );
+    }
+
+    /// <summary>
+    /// Shows a new chart in a default form.
+    /// </summary>
+    /// <param name="f">The function.</param>
+    /// <param name="parameters">The function parameters.</param>
+    /// <param name="xmin">The starting x value.</param>
+    /// <param name="xmax">The ending x value.</param>
+    /// <param name="numInterpolatedValues">The number of interpolated values.</param>
+    /// <remarks>
+    /// Equivalent to:
+    /// <code>
+    /// NMathChart.Show( ToChart( f, parameters, xmin, ymin, numInterpolatedValues ) );
+    /// </code>
+    /// </remarks>
+    public static void Show( Func<DoubleVector, double, double> f, DoubleVector parameters, double xmin, double xmax, int numInterpolatedValues )
     {
       Show( ToChart( f, parameters, xmin, xmax, numInterpolatedValues ) );
     }
@@ -4058,8 +4206,24 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <returns>A new chart.</returns>
     public static ChartControl ToChart( PolynomialLeastSquares pls, DoubleVector x, DoubleVector y, int numInterpolatedValues )
     {
+      return ToChart( pls, x, y, NMathFunctions.MinValue( x ), NMathFunctions.MaxValue( x ), numInterpolatedValues );
+    }
+
+    /// <summary>
+    /// Returns a new line chart by interpolating over the given fitted polynomial.
+    /// </summary>
+    /// <param name="pls">A PolynomialLeastSquares object containing a least squares fit of a polynomial to
+    /// the data.</param>
+    /// <param name="x">The fitted x values.</param>
+    /// <param name="y">The fitted y values.</param>
+    /// <param name="xmin">The starting x value.</param>
+    /// <param name="xmax">The ending x value.</param>
+    /// <param name="numInterpolatedValues">The number of interpolated values.</param>
+    /// <returns>A new chart.</returns>
+    public static ChartControl ToChart( PolynomialLeastSquares pls, DoubleVector x, DoubleVector y, double xmin, double xmax, int numInterpolatedValues )
+    {
       ChartControl chart = GetDefaultChart();
-      Update( ref chart, pls, x, y, numInterpolatedValues );
+      Update( ref chart, pls, x, y, xmin, xmax, numInterpolatedValues );
       return chart;
     }
 
@@ -4079,6 +4243,27 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// </remarks>
     public static void Update( ref ChartControl chart, PolynomialLeastSquares pls, DoubleVector x, DoubleVector y, int numInterpolatedValues )
     {
+      Update( ref chart, pls, x, y, NMathFunctions.MinValue( x ), NMathFunctions.MaxValue( x ), numInterpolatedValues );
+    }
+
+    /// <summary>
+    /// Updates the given chart with the specified fitted polynomial.
+    /// </summary>
+    /// <param name="chart">A chart.</param>
+    /// <param name="pls">A PolynomialLeastSquares object containing a least squares fit of a polynomial to
+    /// the data.</param>
+    /// <param name="x">The fitted x values.</param>
+    /// <param name="y">The fitted y values.</param>
+    /// <param name="xmin">The starting x value.</param>
+    /// <param name="xmax">The ending x value.</param>
+    /// <param name="numInterpolatedValues">The number of interpolated values.</param>
+    /// <remarks>
+    /// Titles are added only if chart does not currently contain any titles.
+    /// <br/>
+    /// The first two data series are replaced, or added if necessary.
+    /// </remarks>
+    public static void Update(ref ChartControl chart, PolynomialLeastSquares pls, DoubleVector x, DoubleVector y, double xmin, double xmax, int numInterpolatedValues)
+    {
       List<string> titles = new List<string>()
       {
         "PolynomialLeastSquares",
@@ -4090,7 +4275,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
       List<ChartSeries> series = new List<ChartSeries>()
       {
         BindXY( x, y, ChartSeriesType.Scatter, DefaultMarker ),
-        BindXY( pls.FittedPolynomial, NMathFunctions.MinValue( x ), NMathFunctions.MaxValue( x ), numInterpolatedValues, ChartSeriesType.Line, ChartSymbolShape.None )
+        BindXY( pls.FittedPolynomial, xmin, xmax, numInterpolatedValues, ChartSeriesType.Line, ChartSymbolShape.None )
       };
       series[0].Text = "Points";
       series[1].Text = "Polynomial";
@@ -4117,6 +4302,27 @@ namespace CenterSpace.NMath.Charting.Syncfusion
       Show( ToChart( pls, x, y, numInterpolatedValues ) );
     }
 
+    /// <summary>
+    /// Shows a new chart in a default form.
+    /// </summary>
+    /// <param name="pls">A PolynomialLeastSquares object containing a least squares fit of a polynomial to
+    /// the data.</param>
+    /// <param name="x">The fitted x values.</param>
+    /// <param name="y">The fitted y values.</param>
+    /// <param name="xmin">The starting x value.</param>
+    /// <param name="xmax">The ending x value.</param>
+    /// <param name="numInterpolatedValues">The number of interpolated values.</param>
+    /// <remarks>
+    /// Equivalent to:
+    /// <code>
+    /// NMathChart.Show( ToChart( pls, x, y, numInterpolatedValues ) );
+    /// </code>
+    /// </remarks>
+    public static void Show( PolynomialLeastSquares pls, DoubleVector x, DoubleVector y, double xmin, double xmax, int numInterpolatedValues )
+    {
+      Show( ToChart( pls, x, y, xmin, xmax, numInterpolatedValues ) );
+    }
+
     #endregion PolynomialLeastSquares
 
     #region OneVariableFunctionFitter<M> ------------------------------------
@@ -4134,8 +4340,26 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     public static ChartControl ToChart<M>( OneVariableFunctionFitter<M> ovf, DoubleVector x, DoubleVector y, DoubleVector solution, int numInterpolatedValues )
         where M : INonlinearLeastSqMinimizer, new()
     {
+      return ToChart( ovf, x, y, NMathFunctions.MinValue( x ), NMathFunctions.MaxValue( x ), solution, numInterpolatedValues );
+    }
+
+    /// <summary>
+    /// Returns a new line chart by interpolating over the given fitted function.
+    /// </summary>
+    /// <param name="ovf">A OneVariableFunctionFitter object containing a least squares fit of a
+    /// parameterized function to the given x,y values.</param>
+    /// <param name="x">The fitted x values.</param>
+    /// <param name="y">The fitted y values.</param>
+    /// <param name="xmin">The minimum interpolated x value.</param>
+    /// <param name="xmax">The maximum interpolated x value.</param>
+    /// <param name="solution">>The parameters of the function at the found minimum.</param>
+    /// <param name="numInterpolatedValues">The number of interpolated values.</param>
+    /// <returns>A new chart.</returns>
+    public static ChartControl ToChart<M>( OneVariableFunctionFitter<M> ovf, DoubleVector x, DoubleVector y, double xmin, double xmax, DoubleVector solution, int numInterpolatedValues )
+        where M : INonlinearLeastSqMinimizer, new()
+    {
       ChartControl chart = GetDefaultChart();
-      Update( ref chart, ovf, x, y, solution, numInterpolatedValues );
+      Update( ref chart, ovf, x, y, xmin, xmax, solution, numInterpolatedValues );
       return chart;
     }
 
@@ -4154,7 +4378,31 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <br/>
     /// The first two data series are replaced, or added if necessary.
     /// </remarks>
-    public static void Update<M>( ref ChartControl chart, OneVariableFunctionFitter<M> ovf, DoubleVector x, DoubleVector y, DoubleVector solution, int numInterpolatedValues )
+    public static void Update<M>(ref ChartControl chart, OneVariableFunctionFitter<M> ovf, DoubleVector x, DoubleVector y, DoubleVector solution, int numInterpolatedValues)
+      where M : INonlinearLeastSqMinimizer, new()
+    {
+      Update( ref chart, ovf, x, y, NMathFunctions.MinValue( x ), NMathFunctions.MaxValue( x ), solution, numInterpolatedValues );
+    }
+
+
+    /// <summary>
+    /// Updates the given chart with the specified fitted function.
+    /// </summary>
+    /// <param name="chart">A chart.</param>
+    /// <param name="ovf">A OneVariableFunctionFitter object containing a least squares fit of a
+    /// parameterized function to the given x,y values.</param>
+    /// <param name="x">The fitted x values.</param>
+    /// <param name="y">The fitted y values.</param>
+    /// <param name="xmin">The minimum interpolated x value.</param>
+    /// <param name="xmax">The maximum interpolated x value.</param>
+    /// <param name="solution">>The parameters of the function at the found minimum.</param>
+    /// <param name="numInterpolatedValues">The number of interpolated values.</param>
+    /// <remarks>
+    /// Titles are added only if chart does not currently contain any titles.
+    /// <br/>
+    /// The first two data series are replaced, or added if necessary.
+    /// </remarks>
+    public static void Update<M>( ref ChartControl chart, OneVariableFunctionFitter<M> ovf, DoubleVector x, DoubleVector y, double xmin, double xmax, DoubleVector solution, int numInterpolatedValues )
        where M : INonlinearLeastSqMinimizer, new()
     {
       List<string> titles = new List<string>()
@@ -4167,7 +4415,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
       List<ChartSeries> series = new List<ChartSeries>()
       {
         BindXY( x, y, ChartSeriesType.Scatter, DefaultMarker ),
-        BindXY( ovf.Function, solution, NMathFunctions.MinValue( x ), NMathFunctions.MaxValue( x ), numInterpolatedValues, ChartSeriesType.Line, ChartSymbolShape.None )
+        BindXY( ovf.Function, solution, xmin, xmax, numInterpolatedValues, ChartSeriesType.Line, ChartSymbolShape.None )
       };
       series[0].Text = "Points";
       series[1].Text = "Function";
@@ -4196,6 +4444,29 @@ namespace CenterSpace.NMath.Charting.Syncfusion
       Show( ToChart( ovf, x, y, solution, numInterpolatedValues ) );
     }
 
+    /// <summary>
+    /// Shows a new chart in a default form.
+    /// </summary>
+    /// <param name="ovf">A OneVariableFunctionFitter object containing a least squares fit of a
+    /// parameterized function to the given x,y values.</param>
+    /// <param name="x">The fitted x values.</param>
+    /// <param name="y">The fitted y values.</param>
+    /// <param name="xmin">The starting x value.</param>
+    /// <param name="xmax">The ending x value.</param>
+    /// <param name="solution">The parameters of the function at the found minimum.</param>
+    /// <param name="numInterpolatedValues">The number of interpolated values.</param>
+    /// <remarks>
+    /// Equivalent to:
+    /// <code>
+    /// NMathChart.Show( ToChart( ovf, x, y, solution, numInterpolatedValues ) );
+    /// </code>
+    /// </remarks>
+    public static void Show<M>( OneVariableFunctionFitter<M> ovf, DoubleVector x, DoubleVector y, double xmin, double xmax, DoubleVector solution, int numInterpolatedValues )
+       where M : INonlinearLeastSqMinimizer, new()
+    {
+      Show( ToChart( ovf, x, y, xmin, xmax, solution, numInterpolatedValues ) );
+    }
+
     #endregion OneVariableFunctionFitter<M>
 
     #region BoundedOneVariableFunctionFitter<M> -----------------------------
@@ -4213,8 +4484,26 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     public static ChartControl ToChart<M>( BoundedOneVariableFunctionFitter<M> ovf, DoubleVector x, DoubleVector y, DoubleVector solution, int numInterpolatedValues )
         where M : IBoundedNonlinearLeastSqMinimizer, new()
     {
+      return ToChart( ovf, x, y, NMathFunctions.MinValue( x ), NMathFunctions.MaxValue( x ), solution, numInterpolatedValues );
+    }
+
+    /// <summary>
+    /// Returns a new line chart by interpolating over the given fitted function.
+    /// </summary>
+    /// <param name="ovf">A BoundedOneVariableFunctionFitter object containing a least squares fit of a
+    /// parameterized function to the given x,y values.</param>
+    /// <param name="x">The fitted x values.</param>
+    /// <param name="y">The fitted y values.</param>
+    /// <param name="xmin">The starting x value.</param>
+    /// <param name="xmax">The ending x value.</param>
+    /// <param name="solution">>The parameters of the function at the found minimum.</param>
+    /// <param name="numInterpolatedValues">The number of interpolated values.</param>
+    /// <returns>A new chart.</returns>
+    public static ChartControl ToChart<M>( BoundedOneVariableFunctionFitter<M> ovf, DoubleVector x, DoubleVector y, double xmin, double xmax, DoubleVector solution, int numInterpolatedValues )
+        where M : IBoundedNonlinearLeastSqMinimizer, new()
+    {
       ChartControl chart = GetDefaultChart();
-      Update( ref chart, ovf, x, y, solution, numInterpolatedValues );
+      Update( ref chart, ovf, x, y, xmin, xmax, solution, numInterpolatedValues );
       return chart;
     }
 
@@ -4233,7 +4522,30 @@ namespace CenterSpace.NMath.Charting.Syncfusion
     /// <br/>
     /// The first two data series are replaced, or added if necessary.
     /// </remarks>
-    public static void Update<M>( ref ChartControl chart, BoundedOneVariableFunctionFitter<M> ovf, DoubleVector x, DoubleVector y, DoubleVector solution, int numInterpolatedValues )
+    public static void Update<M>(ref ChartControl chart, BoundedOneVariableFunctionFitter<M> ovf, DoubleVector x, DoubleVector y, DoubleVector solution, int numInterpolatedValues)
+      where M : IBoundedNonlinearLeastSqMinimizer, new()
+    {
+      Update( ref chart, ovf, x, y, NMathFunctions.MinValue( x ), NMathFunctions.MaxValue( x ), solution, numInterpolatedValues );
+    }
+
+    /// <summary>
+    /// Updates the given chart with the specified fitted function.
+    /// </summary>
+    /// <param name="chart">A chart.</param>
+    /// <param name="ovf">A BoundedOneVariableFunctionFitter object containing a least squares fit of a
+    /// parameterized function to the given x,y values.</param>
+    /// <param name="x">The fitted x values.</param>
+    /// <param name="y">The fitted y values.</param>
+    /// <param name="xmin">The minimum interpolated x value.</param>
+    /// <param name="xmax">The maximum interpolated x value.</param>
+    /// <param name="solution">>The parameters of the function at the found minimum.</param>
+    /// <param name="numInterpolatedValues">The number of interpolated values.</param>
+    /// <remarks>
+    /// Titles are added only if chart does not currently contain any titles.
+    /// <br/>
+    /// The first two data series are replaced, or added if necessary.
+    /// </remarks>
+    public static void Update<M>( ref ChartControl chart, BoundedOneVariableFunctionFitter<M> ovf, DoubleVector x, DoubleVector y, double xmin, double xmax, DoubleVector solution, int numInterpolatedValues )
        where M : IBoundedNonlinearLeastSqMinimizer, new()
     {
       List<string> titles = new List<string>()
@@ -4246,7 +4558,7 @@ namespace CenterSpace.NMath.Charting.Syncfusion
       List<ChartSeries> series = new List<ChartSeries>()
       {
         BindXY( x, y, ChartSeriesType.Scatter, DefaultMarker ),
-        BindXY( ovf.Function, solution, NMathFunctions.MinValue( x ), NMathFunctions.MaxValue( x ), numInterpolatedValues, ChartSeriesType.Line, ChartSymbolShape.None )
+        BindXY( ovf.Function, solution, xmin, xmax, numInterpolatedValues, ChartSeriesType.Line, ChartSymbolShape.None )
       };
       series[0].Text = "Points";
       series[1].Text = "Function";
@@ -4273,6 +4585,29 @@ namespace CenterSpace.NMath.Charting.Syncfusion
        where M : IBoundedNonlinearLeastSqMinimizer, new()
     {
       Show( ToChart( ovf, x, y, solution, numInterpolatedValues ) );
+    }
+
+    /// <summary>
+    /// Shows a new chart in a default form.
+    /// </summary>
+    /// <param name="ovf">A BoundedOneVariableFunctionFitter object containing a least squares fit of a
+    /// parameterized function to the given x,y values.</param>
+    /// <param name="x">The fitted x values.</param>
+    /// <param name="y">The fitted y values.</param>
+    /// <param name="xmin">The minimum interpolated x value.</param>
+    /// <param name="xmax">The maximum interpolated x value.</param>
+    /// <param name="solution">>The parameters of the function at the found minimum.</param>
+    /// <param name="numInterpolatedValues">The number of interpolated values.</param>
+    /// <remarks>
+    /// Equivalent to:
+    /// <code>
+    /// NMathChart.Show( ToChart( ovf, x, y, solution, numInterpolatedValues ) );
+    /// </code>
+    /// </remarks>
+    public static void Show<M>( BoundedOneVariableFunctionFitter<M> ovf, DoubleVector x, DoubleVector y, double xmin, double xmax, DoubleVector solution, int numInterpolatedValues )
+       where M : IBoundedNonlinearLeastSqMinimizer, new()
+    {
+      Show( ToChart( ovf, x, y, xmin, xmax, solution, numInterpolatedValues ) );
     }
 
     #endregion BoundedOneVariableFunctionFitter<M>

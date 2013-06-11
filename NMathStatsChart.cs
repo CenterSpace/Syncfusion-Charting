@@ -1,12 +1,29 @@
 ﻿/////////////////////////////////////////////////////////////////////////////
-// Copyright (c) 2003-2011 CenterSpace Software, Inc. All Rights Reserved. //
+// Copyright (c) 2003-2012 CenterSpace Software, Inc. All Rights Reserved. //
 //                                                                         //
-// This code is free software under the Artistic license.                  //
+// This computer software is owned by CenterSpace Software, LLC and is     //
+// protected by U.S. copyright laws and other laws and by international    //
+// treaties. This software is furnished under a license and may be used,   //
+// copied, transmitted and stored in accordance with the terms of such     //
+// license and with the inclusion of the above copyright notice. This      //
+// software or any other copies thereof may not be provided or otherwise   //
+// made available to any other person. No title to and ownership of the    //
+// software is hereby transferred.                                         //
+//                                                                         //
+// U.S. Government Restricted Rights. This computer software is provided   //
+// with Restricted Rights. Use, duplication, or disclosure by the          //
+// Government is subject to restrictions as set forth in subparagraph (c)  //
+// (1) (ii) of The Rights in Technical Data and Computer Software clause   //
+// at DFARS 252.227-7013 or subparagraphs (c) (1) and (2) of the           //
+// Commercial Computer Software - Restricted Rights at 48 CFR 52.227-19,   //
+// as applicable. Manufacturer is:                                         //
 //                                                                         //
 // CenterSpace Software                                                    //
-// 230 SW 3rd Street - Suite #311                                          //
-// Corvallis, Oregon 97333                                                 //
+// 622 NW 32nd Street                                                      //
+// Corvallis, Oregon 97330                                                 //
 // USA                                                                     //
+//                                                                         //
+// For questions about licensing, please email support@centerspace.net     //
 /////////////////////////////////////////////////////////////////////////////
 
 using System;
@@ -2832,12 +2849,12 @@ namespace CenterSpace.NMath.Charting.Syncfusion
       if( function == DistributionFunction.PDF )
       {
         yTitle = "Probability Density Function";
-        f = new OneVariableFunction( delegate( double x ) { return dist.PDF( x ); } );
+        f = new OneVariableFunction( new Func<double, double> ( delegate( double x ) { return dist.PDF( x ); } ) );
       }
       else
       {
         yTitle = "Cumulative Distribution Function";
-        f = new OneVariableFunction( delegate( double x ) { return dist.CDF( x ); } );
+        f = new OneVariableFunction( new Func<double, double> ( delegate( double x ) { return dist.CDF( x ); } ) );
       }
       
 
@@ -2860,12 +2877,12 @@ namespace CenterSpace.NMath.Charting.Syncfusion
       if( function == DistributionFunction.PDF )
       {
         yTitle = "Probability Mass Function";
-        y = x.Apply( dist.PDF );
+        y = x.Apply( new Func<double, double>( dist.PDF ) );
       }
       else
       {
         yTitle = "Cumulative Distribution Function";
-        y = x.Apply( dist.CDF );
+        y = x.Apply( new Func<double, double>( dist.CDF ) );
       }
 
       ChartSeries series = BindXY( x, y, ChartSeriesType.Column, ChartSymbolShape.None );
